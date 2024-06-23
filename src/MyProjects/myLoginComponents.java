@@ -43,7 +43,7 @@ public class myLoginComponents {
 
         //password field
         PF = new JPasswordField();
-        PF.setBounds(20,120,240,30);
+        PF.setBounds(120,120,240,30);
         JP.add(PF);
 
 
