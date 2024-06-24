@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StudentInsertComponent {
+public class StudentInsertComponent extends JFrame{
     JPanel JP;
     JLabel stdName, rollNo,stdAddress, gender, phoneNo, email,heading;
     JTextField rollNoTF, nameTF, addressTF, phoneTF,emailTF;
@@ -13,12 +13,23 @@ public class StudentInsertComponent {
     JComboBox <String> JCB;
 
     String[] genders={"Male","Female"};
+    void init()
+    {
+        this.setSize(400,500); //default value
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Exit while clicking 'X' Button
+        this.setLocationRelativeTo(null); //it set the window to middle
+        this.setResizable(false);
+        this.setVisible(true);
+    }
+
 
     StudentInsertComponent()
     {
         JP = new JPanel();
         JP.setSize(400,500);
         JP.setLayout(null);
+        this.add(JP);
+
 
 //        heading = new JLabel("INSERT STUDENTS");
 //        heading.setFont(new Font("calibri", Font.BOLD,16));

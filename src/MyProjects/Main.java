@@ -4,10 +4,9 @@ package MyProjects;
 import javax.swing.*;
 
 class MyFrame extends JFrame{
-    MyFrame()
+    void load()
     {
 //        new MyFrame();
-        this.setVisible(true); //it visible the window
         this.setSize(400,300); //default value
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Exit while clicking 'X' Button
         this.setLocationRelativeTo(null); //it set the window to middle
@@ -16,11 +15,12 @@ class MyFrame extends JFrame{
 }
 public class Main {
     public static void main(String[] args) {
-        //Login Form Frame Component
-        myLoginComponents LoginComponents =new myLoginComponents();
-        new MyFrame().add(LoginComponents.JP); //adding the MyLoginComponents
 
-        StudentInsertComponent studentComponent = new StudentInsertComponent();
-//        new MyFrame().add(studentComponent.JP);
+        MyFrame m =new MyFrame();
+        m.load();
+        //Login Form Frame Component
+        myLoginComponents LoginComponents = new myLoginComponents(m);
+
+
     }
 }

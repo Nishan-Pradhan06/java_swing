@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 public class myLoginComponents {
+    MyFrame m;
     JPanel JP;
     JLabel uName, uPassword;
     JTextField TF;
@@ -15,14 +16,16 @@ public class myLoginComponents {
 
     Connection c = database.connect();// it establishes connection
     Statement st = null;
-    myLoginComponents()
+    myLoginComponents(MyFrame m)
     {
+        this.m =m;
         //Login Design();
         JP = new JPanel();
         JP.setSize(400,300);
 //        JP.setBackground(Color.GRAY);
         JP.setLayout(null);
         JP.setForeground(Color.red);
+        m.add(JP);
 
 
         //text for user name
@@ -63,6 +66,7 @@ public class myLoginComponents {
                 System.out.println("DataBase Connection Successful");
             }
         });
+        m.setVisible(true); //it visible the window
     }
     //database connection function should be here
     private void LoginPerformed(ActionEvent e)
@@ -77,6 +81,9 @@ public class myLoginComponents {
             if(RS.next())
             {
                 JOptionPane.showMessageDialog(null,"Login Successful"); //if success it will appear a dilogbox with login success message
+                m.dispose();
+                StudentInsertComponent SIC = new StudentInsertComponent();
+                SIC.init();
             }
             else{
                 JOptionPane.showMessageDialog(null,"Invalid Credential"); //if user enter the incorrect credential this statement will call || open dilog box with invalid credential
