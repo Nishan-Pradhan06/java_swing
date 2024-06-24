@@ -19,7 +19,7 @@ public class StudentInsertComponent extends JFrame{
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Exit while clicking 'X' Button
         this.setLocationRelativeTo(null); //it set the window to middle
         this.setResizable(false);
-        this.setVisible(true);
+
     }
 
 
@@ -131,5 +131,6 @@ public class StudentInsertComponent extends JFrame{
                 System.out.println("Operation Button Clicked Successful");
             }
         });
+        this.setVisible(true);
     }
 }
