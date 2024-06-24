@@ -7,7 +7,7 @@ class MyFrame extends JFrame{
     void load()
     {
 //        new MyFrame();
-        this.setSize(400,300); //default value
+        this.setSize(350,300); //default value
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Exit while clicking 'X' Button
         this.setLocationRelativeTo(null); //it set the window to middle
         this.setResizable(false);

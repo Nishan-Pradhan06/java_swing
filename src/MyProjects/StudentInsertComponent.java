@@ -44,17 +44,18 @@ public class StudentInsertComponent extends JFrame{
 
         nameTF= new JTextField();
         nameTF.setBounds(120,20,240,30);
+        nameTF.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
         JP.add(nameTF);
 
         //roll text label and field
         rollNo = new JLabel("Roll No: ");
         rollNo.setFont(new Font("calibri", Font.BOLD,16));
-
         rollNo.setBounds(20,80,100,35);
         JP.add(rollNo);
 
         rollNoTF= new JTextField();
         rollNoTF.setBounds(120,80,240,30);
+        rollNoTF.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
         JP.add(rollNoTF);
 
 
@@ -66,6 +67,7 @@ public class StudentInsertComponent extends JFrame{
 
         addressTF= new JTextField();
         addressTF.setBounds(120,140,240,30);
+        addressTF.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
         JP.add(addressTF);
 
 
@@ -77,6 +79,7 @@ public class StudentInsertComponent extends JFrame{
 
         JCB= new JComboBox<>(genders);
         JCB.setBounds(120,200,240,30);
+        JCB.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
         JP.add(JCB);
 
         //phone num
@@ -87,6 +90,7 @@ public class StudentInsertComponent extends JFrame{
 
         phoneTF= new JTextField();
         phoneTF.setBounds(120,260,240,30);
+        phoneTF.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
         JP.add(phoneTF);
 
         //email
@@ -97,6 +101,7 @@ public class StudentInsertComponent extends JFrame{
 
         emailTF= new JTextField();
         emailTF.setBounds(120,320,240,30);
+        emailTF.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
         JP.add(emailTF);
 
 
@@ -104,12 +109,16 @@ public class StudentInsertComponent extends JFrame{
         SubmitBtn = new JButton("Submit");
         SubmitBtn.setBackground(Color.green);
         SubmitBtn.setBounds(20,380,160,40);
+        SubmitBtn.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
+        SubmitBtn.setFocusPainted(false); // Disable focus painting for cleaner look
         JP.add(SubmitBtn);
 
         //operation button
         OperationBtn = new JButton("Operation");
         OperationBtn.setBackground(Color.PINK);
         OperationBtn.setBounds(200,380,160,40);
+        OperationBtn.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
+        OperationBtn.setFocusPainted(false); // Disable focus painting for cleaner look
         JP.add(OperationBtn);
 
         //function for Submit Button
