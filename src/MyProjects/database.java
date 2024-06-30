@@ -12,28 +12,11 @@ public class database {
     public static Connection connect() {
         try {
             Connection c = DriverManager.getConnection(DB_URL, user, password);
-            System.out.println("Conneting....");
+            System.out.println("🎉Database is connected Successfully..🎉");
             return c;
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex);
             return null;
         }
-
-
     }
-    ///checking the code is running or not..
-//    public static void main(String []args)
-//    {
-//        database data = new database();
-//
-//        try{
-//            if (data!=null){
-//                System.out.println("Connection sucessful");
-//            }
-//        }
-//        catch (Exception e)
-//        {
-//            System.out.println("error"+e);
-//        }
-//    }
 }

@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
 
 public class StudentInsertComponent extends JFrame{
     JPanel JP;
@@ -13,6 +14,10 @@ public class StudentInsertComponent extends JFrame{
     JComboBox <String> JCB;
 
     String[] genders={"Male","Female"};
+
+    Connection connection = database.connect();
+    Statement st = null;
+
     void init()
     {
         this.setSize(400,500); //default value
@@ -126,7 +131,7 @@ public class StudentInsertComponent extends JFrame{
         SubmitBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                LoginPerformed(e);
+                SubmitPerformed(e);
                 System.out.println("Submit Button Clicked Successful");
             }
         });
@@ -136,10 +141,21 @@ public class StudentInsertComponent extends JFrame{
         OperationBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                LoginPerformed(e);
+//
                 System.out.println("Operation Button Clicked Successful");
             }
         });
         this.setVisible(true);
+    }
+    private void SubmitPerformed(ActionEvent e){
+        try {
+            st = connection.createStatement();
+            String std_name = stdName.getText();
+            int std_roll = Integer.parseInt(stdName.getText());
+            String user_name = stdName.getText();
+
+        }catch (Exception ex){
+
+        }
     }
 }

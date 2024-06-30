@@ -67,7 +67,6 @@ public class myLoginComponents {
             @Override
             public void actionPerformed(ActionEvent e) {
                 LoginPerformed(e); // Call method when button is clicked
-                System.out.println("DataBase Connection Successful"); // Log connection success to console
             }
         });
 
