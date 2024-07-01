@@ -161,6 +161,7 @@ public class StudentInsertComponent extends JFrame{
 //
                 dispose();
                 view v = new view();
+                v.loadData();
             }
         });
         this.setVisible(true);
