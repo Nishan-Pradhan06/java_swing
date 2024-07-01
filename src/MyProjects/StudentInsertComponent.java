@@ -5,12 +5,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.util.logging.Logger;
 
 public class StudentInsertComponent extends JFrame{
     JPanel JP;
     JLabel stdName, rollNo,stdAddress, gender, phoneNo, email,heading;
     JTextField rollNoTF, nameTF, addressTF, phoneTF,emailTF;
-    JButton SubmitBtn, OperationBtn;
+    JButton SubmitBtn, OperationBtn, displayBtn;
     JComboBox <String> JCB;
 
     String[] genders={"Male","Female"};
@@ -20,7 +21,7 @@ public class StudentInsertComponent extends JFrame{
 
     void init()
     {
-        this.setSize(400,500); //default value
+        this.setSize(400,550); //default value
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Exit while clicking 'X' Button
         this.setLocationRelativeTo(null); //it set the window to middle
         this.setResizable(false);
@@ -31,7 +32,7 @@ public class StudentInsertComponent extends JFrame{
     StudentInsertComponent()
     {
         JP = new JPanel();
-        JP.setSize(400,500);
+        JP.setSize(400,550);
         JP.setLayout(null);
         this.add(JP);
 
@@ -126,6 +127,14 @@ public class StudentInsertComponent extends JFrame{
         OperationBtn.setFocusPainted(false); // Disable focus painting for cleaner look
         JP.add(OperationBtn);
 
+        //display button
+        displayBtn = new JButton("Display");
+        displayBtn.setBackground(Color.BLUE);
+        displayBtn.setBounds(20,440,340,40);
+        displayBtn.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
+        displayBtn.setFocusPainted(false); // Disable focus painting for cleaner look
+        JP.add(displayBtn);
+
         //function for Submit Button
 
         SubmitBtn.addActionListener(new ActionListener() {
@@ -145,17 +154,48 @@ public class StudentInsertComponent extends JFrame{
                 System.out.println("Operation Button Clicked Successful");
             }
         });
+        //display button
+        displayBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+//
+                dispose();
+                view v = new view();
+            }
+        });
         this.setVisible(true);
     }
+    //Submit button logic
     private void SubmitPerformed(ActionEvent e){
+        String stdName, stdAdd,stdGen,stdEmail,stdPhone;
+        int stdRoll;
+
         try {
             st = connection.createStatement();
-            String std_name = stdName.getText();
-            int std_roll = Integer.parseInt(stdName.getText());
-            String user_name = stdName.getText();
-
-        }catch (Exception ex){
-
+            if (("".equals(rollNoTF.getText())) && ("".equals(nameTF.getText())) &&("".equals(addressTF.getText()))&&("".equals(phoneTF.getText())) && ("".equals(emailTF.getText())))
+            {
+                JOptionPane.showMessageDialog(new JFrame(),"Fill all the details!","Dialog",JOptionPane.ERROR_MESSAGE);
+            }
+            else {
+                stdName =nameTF.getText();
+                stdAdd =addressTF.getText();
+                stdGen =(String) JCB.getSelectedItem();
+                stdEmail =emailTF.getText();
+                stdRoll =Integer.parseInt(rollNoTF.getText());
+                stdPhone =phoneTF.getText();
+                String SqlQuery = "INSERT INTO students_data(std_name,std_roll,std_address,std_gender,std_phone,std_email) VALUES ('"+stdName+"','"+stdRoll+"','"+stdAdd+"','"+stdGen+"','"+stdPhone+"','"+stdEmail+"')";
+                st.executeUpdate(SqlQuery);
+                JOptionPane.showMessageDialog(rootPane,"Successfully Registered","Dialog",JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog( rootPane, ex);
         }
+
     }
+
+    private void ViewData(ActionEvent e)
+    {
+
+    }
+
 }
