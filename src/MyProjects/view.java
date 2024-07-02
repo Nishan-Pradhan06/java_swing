@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class view extends JFrame {
+    JButton tableBtn;
     Connection connection = database.connect();
     Statement st = null;
 
@@ -30,7 +31,12 @@ public class view extends JFrame {
             DefaultTableModel tableModel = new DefaultTableModel(new String[] {"Id","Roll no","Name","Address","Gender","Phone","Email"},0);
             JTable table = new JTable(tableModel);
             JScrollPane JSP = new JScrollPane(table);
-            JButton tableBtn= new JButton("Back");
+            tableBtn= new JButton("Back");
+            tableBtn.setBackground(Color.white);
+            tableBtn.setBounds(20,440,340,80);
+            tableBtn.setBorder(BorderFactory.createEmptyBorder()); // Remove default border
+            tableBtn.setFocusPainted(false); // Disable focus painting for cleaner look
+            add(tableBtn);
 
             JPanel panel =new JPanel(new BorderLayout());
             panel.add(JSP,BorderLayout.CENTER);

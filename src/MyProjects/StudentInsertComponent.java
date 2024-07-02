@@ -142,7 +142,6 @@ public class StudentInsertComponent extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 SubmitPerformed(e);
-                System.out.println("Submit Button Clicked Successful");
             }
         });
 
@@ -154,6 +153,7 @@ public class StudentInsertComponent extends JFrame{
                 dispose();
                 operation op = new operation();
                 op.init();
+
 
             }
         });
