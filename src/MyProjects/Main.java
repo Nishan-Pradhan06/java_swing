@@ -21,8 +21,5 @@ public class Main {
         m.load();
         //Login Form Frame Component
         myLoginComponents LoginComponents = new myLoginComponents(m);
-//        operation op = new operation();
-
-
     }
 }
