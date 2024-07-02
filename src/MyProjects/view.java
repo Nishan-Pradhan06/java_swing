@@ -3,6 +3,8 @@ package MyProjects;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,7 +28,7 @@ public class view extends JFrame {
         {
             st = connection.createStatement();
             DefaultTableModel tableModel = new DefaultTableModel(new String[] {"Id","Roll no","Name","Address","Gender","Phone","Email"},0);
-            JTable table = new JTable();
+            JTable table = new JTable(tableModel);
             JScrollPane JSP = new JScrollPane(table);
             JButton tableBtn= new JButton("Back");
 
@@ -41,16 +43,25 @@ public class view extends JFrame {
             String id, rollno, name,address, gender, phone, email;
             while (resultSet.next())
             {
-                id = resultSet.getString("Std Id");
-                rollno = resultSet.getString("Roll No");
-                name = resultSet.getString("Full Name");
-                address = resultSet.getString("Address");
-                gender = resultSet.getString("Gender");
-                phone = resultSet.getString("Phone");
-                email = resultSet.getString("Email");
+                id = resultSet.getString("std_id");
+                rollno = resultSet.getString("std_roll");
+                name = resultSet.getString("std_name");
+                address = resultSet.getString("std_address");
+                gender = resultSet.getString("std_gender");
+                phone = resultSet.getString("std_phone");
+                email = resultSet.getString("std_email");
 
                 tableModel.addRow(new Object[]{id,rollno,name,address,gender,phone,email});
             }
+            tableBtn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    dispose();
+                    StudentInsertComponent SIC = new StudentInsertComponent();
+                    SIC.init();
+
+                }
+            });
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

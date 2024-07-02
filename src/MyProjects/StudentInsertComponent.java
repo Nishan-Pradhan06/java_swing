@@ -21,6 +21,7 @@ public class StudentInsertComponent extends JFrame{
 
     void init()
     {
+        this.setTitle("Insert Data");
         this.setSize(400,550); //default value
         this.setDefaultCloseOperation(EXIT_ON_CLOSE); //Exit while clicking 'X' Button
         this.setLocationRelativeTo(null); //it set the window to middle
@@ -150,8 +151,10 @@ public class StudentInsertComponent extends JFrame{
         OperationBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//
-                System.out.println("Operation Button Clicked Successful");
+                dispose();
+                operation op = new operation();
+                op.init();
+
             }
         });
         //display button
@@ -191,11 +194,6 @@ public class StudentInsertComponent extends JFrame{
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog( rootPane, ex);
         }
-
-    }
-
-    private void ViewData(ActionEvent e)
-    {
 
     }
 
